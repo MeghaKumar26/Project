@@ -4,96 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Serene AI - Mental Health Assistant</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #e0f7fa;
-            color: #333;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-        }
-        .container {
-            background-color: #ffffff;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            padding: 20px;
-            width: 400px;
-        }
-        h1 {
-            text-align: center;
-            color: #00796b;
-        }
-        #chat-box {
-            border: 1px solid #ccc;
-            border-radius: 10px;
-            height: 300px;
-            overflow-y: scroll;
-            padding: 10px;
-            margin-bottom: 10px;
-        }
-        .message {
-            margin-bottom: 10px;
-            font-size: 14px;
-        }
-        .user {
-            color: #00796b;
-        }
-        .bot {
-            color: #e91e63;
-        }
-        input[type="text"] {
-            width: calc(100% - 80px);
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-        button {
-            padding: 10px 20px;
-            margin-left: 10px;
-            background-color: #00796b;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        button:hover {
-            background-color: #004d40;
-        }
-        .quick-response {
-            margin-top: 10px;
-            display: flex;
-            justify-content: space-around;
-        }
-        .quick-response button {
-            width: 30%;
-            background-color: #e91e63;
-        }
-        .quick-response button:hover {
-            background-color: #c2185b;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div class="container">
+        <h1>Serene AI - Mental Health Assistant</h1>
+        <div class="chatbox"></div>
+        <input type="text" id="userInput" placeholder="How are you feeling today?">
+        <button id="sendButton">Send</button>
 
-<div class="container">
-    <h1>Serene AI - Mental Health Assistant</h1>
-    <div id="chat-box">
-        <!-- Chat messages will appear here -->
+        <div class="quick-replies">
+            <button class="quick-reply">I feel happy</button>
+            <button class="quick-reply">I feel sad</button>
+            <button class="quick-reply">I feel anxious</button>
+            <button class="quick-reply">I need help</button>
+        </div>
     </div>
-    <input type="text" id="user-input" placeholder="How are you feeling today?">
-    <button onclick="sendMessage()">Send</button>
-    <div class="quick-response">
-        <button onclick="quickResponse('I feel happy')">I feel happy</button>
-        <button onclick="quickResponse('I feel sad')">I feel sad</button>
-        <button onclick="quickResponse('I feel anxious')">I feel anxious</button>
-        <button onclick="quickResponse('I need help')">I need help</button>
-    </div>
-</div>
 
-<script src="script.js"></script>
-
+    <script src="script.js"></script>
 </body>
 </html>
