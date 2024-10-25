@@ -1,57 +1,45 @@
-document.getElementById("send").addEventListener("click", function () {
-    var userInput = document.getElementById("userInput").value.toLowerCase();
-    var response = "";
+const chatBox = document.getElementById('chat-box');
+const userInput = document.getElementById('user-input');
+const sendBtn = document.getElementById('send-btn');
 
-    // Friendly responses similar to ChatGPT style
-    if (userInput.includes("sad") || userInput.includes("crying")) {
-        response = "I'm sorry you're feeling sad. I'm here for you. How about we try some deep breathing exercises or a short meditation?";
-    } else if (userInput.includes("anxious") || userInput.includes("stressed")) {
-        response = "Take a deep breath. It's okay to feel this way sometimes. Would you like some breathing exercises or perhaps a quick distraction, like listening to music or drawing?";
-    } else if (userInput.includes("happy")) {
-        response = "That's wonderful! I'm so happy to hear that! How about doing something fun like a quick game, dancing, or maybe trying out a new recipe?";
-    } else if (userInput.includes("help")) {
-        response = "I'm here to help. Can you tell me more about what you're going through or if you'd like to talk to a professional for support?";
-    } else if (userInput.includes("yes")) {
-        response = "Great! Let's dive in. What would you like to start with? Breathing exercises, a meditation session, or something fun to lift your spirits?";
-    } else if (userInput.includes("no")) {
-        response = "That's okay! Let me know how else I can support you. I'm always here if you change your mind.";
-    } else {
-        response = "I'm here to listen. Feel free to share how you're feeling or let me know how I can assist you.";
+const botMessages = [
+    "How are you feeling today?",
+    "Is there anything you'd like to talk about?",
+    "Take a deep breath. What can I help you with?",
+    "I am here to help you find peace. Tell me what's on your mind."
+];
+
+sendBtn.addEventListener('click', sendMessage);
+
+userInput.addEventListener('keydown', function (e) {
+    if (e.key === 'Enter') {
+        sendMessage();
     }
-
-    // Update the chat window with the user's input and the AI response
-    var chatBox = document.getElementById("chatBox");
-    chatBox.innerHTML += "<p><strong>You:</strong> " + userInput + "</p>";
-    chatBox.innerHTML += "<p><strong>Serene AI:</strong> " + response + "</p>";
-
-    // Clear the input box
-    document.getElementById("userInput").value = "";
 });
 
-// Buttons for quick mood selection
-document.getElementById("happyButton").addEventListener("click", function () {
-    var response = "That's wonderful! I'm so happy to hear that! How about doing something fun like a quick game, dancing, or maybe trying out a new recipe?";
-    updateChat("I feel happy", response);
-});
+function sendMessage() {
+    const userMessage = userInput.value.trim();
+    if (userMessage === '') return;
 
-document.getElementById("sadButton").addEventListener("click", function () {
-    var response = "I'm sorry you're feeling sad. I'm here for you. How about we try some deep breathing exercises or a short meditation?";
-    updateChat("I feel sad", response);
-});
+    addMessage(userMessage, 'user-message');
+    userInput.value = '';
 
-document.getElementById("anxiousButton").addEventListener("click", function () {
-    var response = "Take a deep breath. It's okay to feel this way sometimes. Would you like some breathing exercises or perhaps a quick distraction, like listening to music or drawing?";
-    updateChat("I feel anxious", response);
-});
+    setTimeout(() => {
+        const botReply = getBotReply();
+        addMessage(botReply, 'bot-message');
+    }, 1000); // Simulate a delay in bot response
+}
 
-document.getElementById("helpButton").addEventListener("click", function () {
-    var response = "I'm here to help. Can you tell me more about what you're going through or if you'd like to talk to a professional for support?";
-    updateChat("I need help", response);
-});
+function addMessage(message, className) {
+    const messageDiv = document.createElement('div');
+    messageDiv.classList.add('chat-message', className);
+    const messageContent = `<div class="message">${message}</div>`;
+    messageDiv.innerHTML = messageContent;
+    chatBox.appendChild(messageDiv);
+    chatBox.scrollTop = chatBox.scrollHeight;
+}
 
-// Function to update the chat box
-function updateChat(userText, aiResponse) {
-    var chatBox = document.getElementById("chatBox");
-    chatBox.innerHTML += "<p><strong>You:</strong> " + userText + "</p>";
-    chatBox.innerHTML += "<p><strong>Serene AI:</strong> " + aiResponse + "</p>";
+function getBotReply() {
+    const randomIndex = Math.floor(Math.random() * botMessages.length);
+    return botMessages[randomIndex];
 }
