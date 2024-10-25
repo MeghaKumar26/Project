@@ -2,7 +2,7 @@ const chatBox = document.getElementById('chat-box');
 const userInput = document.getElementById('user-input');
 const sendBtn = document.getElementById('send-btn');
 
-// Predefined bot messages and activities for various emotions and tasks
+// Predefined bot messages for various emotions and tasks
 const botMessages = {
     "sad": [
         "I'm sorry you're feeling this way. It's okay to have bad days. How about trying some breathing exercises or a 5-minute meditation to calm your mind? Would you like to try that?"
@@ -94,11 +94,4 @@ function getBotReply(userMessage) {
         return botMessages['paint'][0];
     } else if (userMessage.includes('chores') || userMessage.includes('clean')) {
         return botMessages['chores'][0];
-    } else if (userMessage.includes('yes')) {
-        return botMessages['yes'][0];
-    } else if (userMessage.includes('no')) {
-        return botMessages['no'][0];
-    } else {
-        return botMessages['default'][0];
-    }
-}
+    } else if (userMessage.includes('yes'))
