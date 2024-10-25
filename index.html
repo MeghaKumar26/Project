@@ -3,22 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Serene AI - Your Mental Health Assistant</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Serene AI - Find Your Calm</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container">
-        <h1>Serene AI - Mental Health Assistant</h1>
-        <div class="chatbox" id="chatbox"></div>
-        <input type="text" id="userInput" placeholder="How are you feeling today?">
-        <button id="sendButton">Send</button>
-
-        <div class="quick-replies">
-            <button class="quick-reply">I feel happy</button>
-            <button class="quick-reply">I feel sad</button>
-            <button class="quick-reply">I feel anxious</button>
-            <button class="quick-reply">I feel like crying</button>
-            <button class="quick-reply">I need help</button>
+    <div class="chat-container">
+        <div class="chat-header">
+            <h2>Serene AI</h2>
+            <p>Your Personal Peace & Calm Assistant</p>
+        </div>
+        <div class="chat-box" id="chat-box">
+            <div class="chat-message bot-message">
+                <div class="message">
+                    Welcome to Serene AI! How are you feeling today?
+                </div>
+            </div>
+        </div>
+        <div class="chat-input">
+            <input type="text" id="user-input" placeholder="Type your message..." autofocus>
+            <button id="send-btn">Send</button>
         </div>
     </div>
 
