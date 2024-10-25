@@ -3,17 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Serene AI</title>
     <link rel="stylesheet" href="styles.css">
-    <title>Mental Health Assistant</title>
 </head>
 <body>
-    <div class="chat-container">
-        <div class="chat-box" id="chat-box">
-            <div class="bot-message">Hello! How are you feeling today?</div>
+    <div class="container">
+        <h1>Serene AI</h1>
+        <div id="chat-box" class="chat-box">
+            <!-- User and bot messages will be dynamically added here -->
         </div>
-        <input type="text" id="user-input" placeholder="Type your message here..." />
-        <button id="send-button">Send</button>
+        <div class="input-area">
+            <input type="text" id="user-input" placeholder="How are you feeling today?" autofocus>
+            <button id="send-button">Send</button>
+        </div>
     </div>
     <script src="script.js"></script>
 </body>
 </html>
+
